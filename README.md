@@ -1,4 +1,4 @@
-Python Port Tarayıcı (Port Scanner)
+-- Python Port Tarayıcı (Port Scanner) --
 
 Temel `socket` kütüphanesini kullanan basit bir komut satırı (CLI) port tarayıcı aracıdır.
 
