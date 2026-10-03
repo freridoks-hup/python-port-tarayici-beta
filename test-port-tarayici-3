@@ -1,0 +1,38 @@
+import socket
+
+acıklar = []
+
+print("\n Port Tarayıcı (BETA) ' ya HOŞ GELDİNİZ..")
+
+ilk_port = int(input("Hangi port aralığını taramak istersiniz? ilk sayıyı giriniz."))
+son_port = int(input("İkinci yani son port aralığınız nedir?"))
+
+deneme = int(input("Kaç defa denemek istersiniz?"))
+
+User = input("Hangi IP i yi kullanmak istersiniz?")
+
+for port in range (ilk_port, son_port +1):    
+    
+    for i in range(1, deneme + 1):
+
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        try:
+            s.settimeout(1)
+            sonuc = s.connect_ex((User, port))
+        finally:
+            s.close()
+
+        if sonuc == 0:
+                print(f"Açık! = {port}")
+                acıklar.append(port)
+                break
+
+                                
+durum = len(acıklar)
+
+if durum == 0:
+    print("Hiçbir Port açık değil.")
+   
+else:
+     print("Açık Portlar:", acıklar)
